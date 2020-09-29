@@ -21,7 +21,6 @@ def all():
 def create():
     if request.method == 'POST':
         try:
-            # Get donor id from Donor table
             donor_id = Donor.get(Donor.name == request.form['name']).id
             Donation.create(value=int(request.form['donation']),
                             donor_id=donor_id)
